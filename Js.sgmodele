@@ -4,6 +4,11 @@
 [MITM]
 hostname = %APPEND% api.revenuecat.com, buy.itunes.apple.com, *account.wps.com, *account.wps.cn,*.docer.wps.cn, api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, vipapi.wps.cn, mb3admin.com, api.picsart.c*, api.meiease.c*, api.m.jd.com, ios*.prod.ftl.netflix.com, notability.com, spclient.wg.spotify.com
 
+[URL Rewrite]
+# 哔哩哔哩动画去广告 (onewayticket255)
+https://app.bilibili.com/x/v2/(splash|search/square) - reject
+https://api.bilibili.com/x/v2/dm/ad - reject
+
 [Script]
 # 大杂烩
 Pro = type=http-response,pattern= ^https:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers\/(\$RCAnonymousID%)?([\u4E00-\u9FA5A-Za-z0-9-_]+))$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Alex0510/Eric/master/surge/Script/revenuecat.js
