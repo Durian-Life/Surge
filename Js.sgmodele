@@ -27,3 +27,5 @@ Wps = type=http-response,pattern=^https?:\/\/account\.wps\.cn\/api\/v3\/mine\/vi
 Wps = type=http-request,pattern=^https?:\/\/.+\.(docer.)?wps.cn\/(user\/v1\/vip|android\/mb\/buy|download\/v1\/ios|partner\/invoke\/usable|(api|rank)\/v1(\/mobile\/mb)?\/detail),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/WPSDocerVIPowerCrack.js
 # Emby Premium
 EmbyPremiere.js = type=http-response,pattern=^https?:\/\/mb3admin.com\/admin\/service\/registration\/validateDevice,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/rartv/SurgeScript/main/EmbyPremiere/EmbyPremiere.js
+# Bilibili解锁画质
+Blibili = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo\?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Durian-Life/Quantumult-X/master/Script/bilibili_json.js
