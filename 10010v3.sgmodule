@@ -1,3 +1,6 @@
+#!name=10010v3
+#!desc=查流量
+
 [MITM]
 hostname = 10010.json
 
