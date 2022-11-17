@@ -34,17 +34,17 @@ const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (
       } else if (status==STATUS_AVAILABLE){
         //console.log(2)
         console.log(region)
-        disney_result="D+:☑"+region.toUpperCase()
+        disney_result="D+：☑"+region.toUpperCase()
         // console.log(result["Disney"])
       } else if (status==STATUS_NOT_AVAILABLE) {
         //console.log(3)
-        disney_result="D+:☒"
+        disney_result="D+：☒"
       } else if (status==STATUS_TIMEOUT) {
-        disney_result="D+:超时"
+        disney_result="D+：超时"
       }
 result.push(disney_result)
 console.log(result)
-        let content = result.join('|')
+        let content = result.join('｜')
         console.log(content)
      
 panel_result['content'] = content
@@ -86,7 +86,7 @@ panel_result['content'] = content
       })
     }
   
-    let youtube_check_result = 'YT:'
+    let youtube_check_result = 'YT：'
   
     await inner_check()
       .then((code) => {
@@ -142,7 +142,7 @@ panel_result['content'] = content
       })
     }
   
-    let netflix_check_result = 'NF:'
+    let netflix_check_result = 'NF：'
   
     await inner_check(81215567)
       .then((code) => {
