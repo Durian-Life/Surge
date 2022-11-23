@@ -2,20 +2,20 @@
 #!desc=自用解锁
 
 [MITM]
-hostname = %APPEND% api.revenuecat.com, buy.itunes.apple.com, *account.wps.com, *account.wps.cn,*.docer.wps.cn, api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, vipapi.wps.cn, mb3admin.com, api.picsart.c*, api.meiease.c*, api.m.jd.com, ios*.prod.ftl.netflix.com, notability.com, spclient.wg.spotify.com
+hostname = %APPEND% api.revenuecat.com, app-measurement.com, buy.itunes.apple.com, *account.wps.com, *account.wps.cn,*.docer.wps.cn, api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, vipapi.wps.cn, mb3admin.com, api.picsart.c*, api.meiease.c*, api.m.jd.com, ios*.prod.ftl.netflix.com, spclient.wg.spotify.com
 
 [URL Rewrite]
 # 哔哩哔哩动画去广告 (onewayticket255)
 https://app.bilibili.com/x/v2/(splash|search/square) - reject
 https://api.bilibili.com/x/v2/dm/ad - reject
+# Fileball
+^https:\/\/app-measurement\.com\/config\/app\/1?(.*?)*$ - reject
 
 [Script]
 # 大杂烩
-Pro = type=http-response,pattern= ^https:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers\/(\$RCAnonymousID%)?([\u4E00-\u9FA5A-Za-z0-9-_]+))$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Alex0510/Eric/master/surge/Script/revenuecat.js
-RC = type=http-request,pattern= ^https:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers\/(\$RCAnonymousID%)?([\u4E00-\u9FA5A-Za-z0-9-_]+)),requires-body=0,max-size=0,script-path=https://raw.githubusercontent.com/Alex0510/Eric/master/surge/Script/bytq.js,script-update-interval=0
-Receipt = type=http-response,pattern=https:\/\/buy\.itunes\.apple\.com\/verifyReceipt,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Alex0510/Eric/master/surge/Script/verifyReceipt.js
+fileball+解锁订阅 = type=http-response,pattern=^https?:\/\/api\.revenuecat\.com\/v1\/(receipts|subscribers\/\$RCAnonymousID%3A\w{32})$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/fileball.js
 # Wps会员
-Wps = type=http-response,pattern=^https?:\/\/[a-z-]*account\.wps\.c(n|om)(:\d+|)\/api\/users,requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Wps.js
+http-response ^https?:\/\/[a-z-]*account\.wps\.c(n|om)(:\d+|)\/api\/users requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Wps.js
 # 微博去广告
 去微博应用内广告 (yichahucha) = type=http-response,pattern="^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua)",requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_launch.js,script-update-interval=0
 去微博应用内广告 (yichahucha) = type=http-response,pattern="^https?://m?api\.weibo\.c(n|om)/2/(statuses/(unread|extend|positives/get|(friends|video)(/|_)(mix)?timeline)|stories/(video_stream|home_list)|(groups|fangle)/timeline|profile/statuses|comments/build_comments|photo/recommend_list|service/picfeed|searchall|cardlist|page|!/(photos/pic_recommend_status|live/media_homelist)|video/tiny_stream_video_list|photo/info|remind/unread_count)",requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_ad.js,script-update-interval=0
