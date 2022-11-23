@@ -2,7 +2,7 @@
 #!desc=自用解锁
 
 [MITM]
-hostname = %APPEND% api.revenuecat.com, app-measurement.com, buy.itunes.apple.com, *account.wps.com, *account.wps.cn,*.docer.wps.cn, api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, vipapi.wps.cn, mb3admin.com, api.picsart.c*, api.meiease.c*, api.m.jd.com, ios*.prod.ftl.netflix.com, spclient.wg.spotify.com
+hostname = %APPEND% api.revenuecat.com, app-measurement.com, buy.itunes.apple.com, *account.wps.com, *account.wps.cn, api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, mb3admin.com, api.picsart.c*, api.meiease.c*, api.m.jd.com, ios*.prod.ftl.netflix.com, spclient.wg.spotify.com
 
 [URL Rewrite]
 # 哔哩哔哩动画去广告 (onewayticket255)
@@ -30,9 +30,6 @@ http-response ^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness
 spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,script-update-interval=0
 # PicsArt美易 pro
 http-response https:\/\/api\.(picsart|meiease)\.c(n|om)\/users\/show\/me\.json requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/PicsArt.js
-# Wps稻壳
-Wps = type=http-response,pattern=^https?:\/\/account\.wps\.cn\/api\/v3\/mine\/vips,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/WPSDocerVIPuserCrack.js
-Wps = type=http-request,pattern=^https?:\/\/.+\.(docer.)?wps.cn\/(user\/v1\/vip|android\/mb\/buy|download\/v1\/ios|partner\/invoke\/usable|(api|rank)\/v1(\/mobile\/mb)?\/detail),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/WPSDocerVIPowerCrack.js
 # Emby Premium
 EmbyPremiere.js = type=http-response,pattern=^https?:\/\/mb3admin.com\/admin\/service\/registration\/validateDevice,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/rartv/SurgeScript/main/EmbyPremiere/EmbyPremiere.js
 
