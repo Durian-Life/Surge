@@ -3,12 +3,14 @@
 #!system=ios
 
 [Script]
-SurgePro_ReloadProfile = type=generic,timeout=10,script-path= https://raw.githubusercontent.com/fishingworld/something/main/PanelScripts/surgepro_reloadprofile.js ,argument=icon=crown.fill&color=#f6c970
+net-info-panel.js=script-path=https://raw.githubusercontent.com/Rabbit-Spec/Surge/Master/Module/Panel/Network-Info/Moore/Network-Info.js,type=generic,timeout=30
 Stream-All-Lite = type=generic,timeout=30,script-path=https://raw.githubusercontent.com/Durian-Life/Surge/main/Script/Streamcheck.js,script-update-interval=0,argument=title=Streaming Media Checking!&icon=0
 FlushDNS = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Rabbit-Spec/Surge/Master/Module/Panel/Flush-DNS/Moore/Flush-DNS.js,argument=title=DNS FLush&icon=cube&color=#afe59a&server=false
 
-[Panel]
-SurgePro_ReloadProfile = script-name=SurgePro_ReloadProfile,update-interval=1
+[Panel] 
+NetInfoPanel=title="",content="",style=info,script-name=net-info-panel.js,update-interval=1
 Stream-All-Lite = script-name=Stream-All-Lite,update-interval=7200
 FlushDNS = script-name=FlushDNS,update-interval=600
 
+[Host]
+ip-api.com = 208.95.112.1
