@@ -5,12 +5,9 @@
 hostname = %APPEND% api.revenuecat.com, app-measurement.com, buy.itunes.apple.com, *account.wps.com, *account.wps.cn, mb3admin.com, api.picsart.c*, api.meiease.c*, api.m.jd.com, spclient.wg.spotify.com
 
 [URL Rewrite]
-# Fileball
-^https:\/\/app-measurement\.com\/config\/app\/1?(.*?)*$ - reject
+
 
 [Script]
-# 大杂烩
-fileball+解锁订阅 = type=http-response,pattern=^https?:\/\/api\.revenuecat\.com\/v1\/(receipts|subscribers\/\$RCAnonymousID%3A\w{32})$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/fileball.js
 # Wps会员
 http-response ^https?:\/\/[a-z-]*account\.wps\.c(n|om)(:\d+|)\/api\/users requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Wps.js
 # > 京东比价
