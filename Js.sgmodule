@@ -2,14 +2,9 @@
 #!desc=自用解锁
 
 [MITM]
-hostname = %APPEND% api.revenuecat.com, app-measurement.com, buy.itunes.apple.com, *account.wps.com, *account.wps.cn, mb3admin.com, api.picsart.c*, api.meiease.c*, api.m.jd.com, spclient.wg.spotify.com
-
-[URL Rewrite]
-
+hostname = %APPEND% api.revenuecat.com, app-measurement.com, buy.itunes.apple.com, mb3admin.com, api.picsart.c*, api.meiease.c*, api.m.jd.com, spclient.wg.spotify.com
 
 [Script]
-# Wps会员
-http-response ^https?:\/\/[a-z-]*account\.wps\.c(n|om)(:\d+|)\/api\/users requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Wps.js
 # > 京东比价
 http-response ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig) requires-body=1,script-path= https://raw.githubusercontent.com/zwf234/rules/master/js/jd_price.js
 # Spotify
