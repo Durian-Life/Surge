@@ -2,7 +2,7 @@
 #!desc=自用解锁
 
 [MITM]
-hostname = %APPEND% api.revenuecat.com, app-measurement.com, buy.itunes.apple.com, mb3admin.com, api.picsart.c*, api.meiease.c*, api.m.jd.com, spclient.wg.spotify.com
+hostname = %APPEND% api.revenuecat.com, app-measurement.com, mb3admin.com, api.picsart.c*, api.meiease.c*, api.m.jd.com, spclient.wg.spotify.com
 
 [Script]
 # > 京东比价
