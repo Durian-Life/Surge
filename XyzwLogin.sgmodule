@@ -1,0 +1,12 @@
+#!url=https://raw.githubusercontent.com/Durian-Life/Quantumult-X/refs/heads/master/breaklogin.jsqx
+#!name=咸鱼之王永久登录
+#!desc=突破咸鱼之王7天登录限制。
+
+[Script]
+
+# > 突破7天登录限制（2024-10-05）@Durian-Life
+breaklogin_11 = type=http-response, pattern=^https:\/\/comb-platform\.hortorgames\.com\/comb-login-server\/api\/v1\/login\/check\?, requires-body=true, max-size=3145728, script-path=https://raw.githubusercontent.com/Durian-Life/Quantumult-X/refs/heads/master/breaklogin.js, timeout=60, script-update-interval=0
+
+[MITM]
+
+hostname = %APPEND% comb-platform.hortorgames.com
